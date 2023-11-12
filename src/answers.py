@@ -24,7 +24,7 @@ def rd1_question_9(df):
 
     return None
 
-    def rd1_question_13(df):
+def rd1_question_13(df):
     df_grouped = (
         df.groupby("owner")
         .agg(qty=pd.NamedAgg("id", "count"))
@@ -42,6 +42,21 @@ def rd1_question_9(df):
     )
 
     fig.update_traces(textposition="outside")
+
+    st.plotly_chart(fig, use_container_width=True)
+
+    return None
+
+
+def rd1_question_14(df):
+    st.text("As we can see, bikes with high kilometer have cheapier prices")
+
+    fig = px.scatter(
+        df,
+        x="km_driven",
+        y="selling_price",
+        labels={"km_driven": "Kilometers", "selling_price": "Selling Price"},
+    )
 
     st.plotly_chart(fig, use_container_width=True)
 
