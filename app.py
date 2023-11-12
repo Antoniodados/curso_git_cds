@@ -40,6 +40,7 @@ def load_data():
 def main()
     df = load_data()
     st.dataframe(df)
+    create_dataframe_section(df)
 
 if __name__ == '__main__':
     main()
